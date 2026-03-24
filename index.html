@@ -1,13 +1,865 @@
-<section class="bioenergy">
-    <h2>O mnie</h2>
-    <p>Jestem magistrem psychologii klinicznej oraz biologii medycznej, a swoje doświadczenie zawodowe budowałam m.in. w środowisku szkolnym, wspierając dzieci, młodzież i ich rodziny. Dzięki temu doskonale rozumiem, jak różnorodne mogą być wyzwania, z którymi mierzymy się na co dzień - emocjonalne, relacyjne i rozwojowe. W pracy łączę wiedzę naukową z intuicyjnym podejściem do człowieka. Obok psychologii moją pasją jest praca z energią, która pozwala spojrzeć na człowieka w sposób bardziej holistyczny i dotrzeć do obszarów, których nie zawsze da się uchwycić tradycyjnymi metodami. Tworzę przestrzeń, w której możesz poczuć się bezpiecznie, zrozumieć siebie głębiej i odzyskać wewnętrzną równowagę. Pomagam osobom, które chcą wprowadzić realną zmianę w swoim życiu - od budowania odporności psychicznej, przez pracę z emocjami, aż po rozwój osobisty i duchowy. Jeśli szukasz wsparcia, które łączy profesjonalizm, empatię i holistyczne spojrzenie, jesteś w dobrym miejscu.</p>
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mgr Ewa Nowińska - Psycholog | Bioenergoterapeutka</title>
+  <meta name="description" content="Mgr Ewa Nowińska - Psycholog wspierający dorosłych i dzieci. Konsultacje online i stacjonarne. Bioenergoterapia metodą Zdenko Domancica. Kowale, Gdańsk.">
+  <meta property="og:title" content="Mgr Ewa Nowińska - Psycholog | Bioenergoterapeutka">
+  <meta property="og:description" content="Psycholog wspierający dorosłych i dzieci. Konsultacje online i stacjonarne. Bioenergoterapia.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: hsl(154, 22%, 43%);
+      --primary-light: hsl(154, 22%, 93%);
+      --primary-fg: #fff;
+      --secondary: hsl(34, 30%, 91%);
+      --secondary-fg: hsl(154, 22%, 30%);
+      --bg: hsl(34, 33%, 97%);
+      --fg: hsl(210, 11%, 25%);
+      --muted: hsl(34, 20%, 90%);
+      --muted-fg: hsl(210, 10%, 45%);
+      --border: hsl(154, 10%, 85%);
+      --card: #fff;
+      --radius: 0.75rem;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    ::selection { background: hsla(154, 22%, 43%, 0.2); }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: rgba(50, 60, 70, 0.9);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* NAV */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.5rem 0;
+      transition: all 0.3s ease;
+    }
+    .nav.scrolled {
+      padding: 1rem 0;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .nav .container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { cursor: pointer; }
+    .nav-logo-name { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: var(--primary); letter-spacing: 0.02em; }
+    .nav-logo-sub { font-size: 0.75rem; color: var(--muted-fg); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 500; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-link {
+      color: rgba(50,60,70,0.8); font-size: 0.875rem; font-weight: 500; letter-spacing: 0.02em;
+      transition: color 0.2s; cursor: pointer;
+      text-decoration: none;
+    }
+    .nav-link:hover { color: var(--primary); }
+    .nav-cta {
+      display: inline-block; padding: 0.65rem 1.5rem;
+      background: var(--primary); color: #fff;
+      border-radius: 50px; font-weight: 600; font-size: 0.875rem;
+      box-shadow: 0 4px 14px hsla(154, 22%, 43%, 0.2);
+      transition: all 0.2s; cursor: pointer; border: none;
+      text-decoration: none;
+    }
+    .nav-cta:hover { box-shadow: 0 6px 20px hsla(154, 22%, 43%, 0.3); transform: translateY(-1px); }
+
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 40px; height: 40px; position: relative; z-index: 110;
+    }
+    .mobile-toggle svg { width: 24px; height: 24px; color: var(--fg); }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 105;
+      background: rgba(251,249,246,0.97); backdrop-filter: blur(20px);
+      flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-serif); font-size: 1.5rem; color: var(--fg);
+      transition: color 0.2s; text-decoration: none;
+    }
+    .mobile-menu a:hover { color: var(--primary); }
+
+    @media (max-width: 1023px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: flex; align-items: center; justify-content: center; }
+    }
+
+    /* HERO */
+    .hero {
+      position: relative; padding: 10rem 0 5rem; overflow: hidden;
+    }
+    .hero-bg1 {
+      position: absolute; top: -10%; right: -5%; width: 500px; height: 500px;
+      border-radius: 50%; background: var(--secondary); filter: blur(80px); opacity: 0.5; z-index: -1;
+    }
+    .hero-bg2 {
+      position: absolute; bottom: -10%; left: -10%; width: 600px; height: 600px;
+      border-radius: 50%; background: hsla(154,22%,43%,0.1); filter: blur(80px); opacity: 0.5; z-index: -1;
+    }
+    .hero .container { display: flex; flex-direction: column-reverse; align-items: center; gap: 3rem; }
+    .hero-text { max-width: 600px; }
+    .hero-label { color: var(--primary); font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.875rem; }
+    .hero-title { font-size: 3rem; font-weight: 700; line-height: 1.15; margin: 0.5rem 0 1rem; color: var(--fg); }
+    .hero-desc { font-size: 1.125rem; color: var(--muted-fg); line-height: 1.7; max-width: 550px; }
+    .hero-quote {
+      padding: 0.5rem 0 0.5rem 1.5rem; margin: 2rem 0;
+      border-left: 4px solid hsla(154,22%,43%,0.3);
+      font-family: var(--font-serif); font-style: italic; font-size: 1.125rem;
+      color: rgba(50,60,70,0.8); background: rgba(255,255,255,0.5); border-radius: 0 0.5rem 0.5rem 0;
+    }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+    .btn-primary {
+      padding: 1rem 2rem; background: var(--primary); color: #fff;
+      border-radius: 50px; font-weight: 600; font-size: 1rem;
+      box-shadow: 0 4px 14px hsla(154,22%,43%,0.25); border: none; cursor: pointer;
+      transition: all 0.2s; text-decoration: none; display: inline-block;
+    }
+    .btn-primary:hover { box-shadow: 0 6px 20px hsla(154,22%,43%,0.35); transform: translateY(-1px); }
+    .btn-outline {
+      padding: 1rem 2rem; background: transparent; color: var(--fg);
+      border: 1px solid rgba(50,60,70,0.1); border-radius: 50px; font-weight: 500; font-size: 1rem;
+      cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-block;
+    }
+    .btn-outline:hover { border-color: rgba(50,60,70,0.3); background: rgba(0,0,0,0.03); }
+    .hero-image-wrap { position: relative; max-width: 400px; width: 100%; }
+    .hero-image {
+      position: relative; z-index: 2; border-radius: 2rem; overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(168,162,158,0.3); aspect-ratio: 3/4;
+    }
+    .hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.7s; }
+    .hero-image:hover img { transform: scale(1.05); }
+    .hero-circle1 {
+      position: absolute; bottom: -1.5rem; left: -1.5rem; width: 8rem; height: 8rem;
+      background: var(--secondary); border-radius: 50%; z-index: 1;
+    }
+    .hero-circle2 {
+      position: absolute; top: -1.5rem; right: -1.5rem; width: 12rem; height: 12rem;
+      border: 2px solid hsla(154,22%,43%,0.2); border-radius: 50%; z-index: 1;
+    }
+
+    @media (min-width: 1024px) {
+      .hero .container { flex-direction: row; gap: 5rem; }
+      .hero-title { font-size: 3.75rem; }
+      .hero { padding: 12rem 0 8rem; }
+    }
+
+    /* SECTIONS */
+    .section { padding: 6rem 0; }
+    .section-white { background: #fff; }
+    .section-bg { background: var(--bg); }
+    .section-primary-light { background: hsla(154,22%,43%,0.05); }
+    .section-header { text-align: center; max-width: 640px; margin: 0 auto 4rem; }
+    .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+    .section-divider { width: 5rem; height: 4px; background: var(--primary); border-radius: 2px; margin: 0 auto 1.5rem; }
+    .section-subtitle { font-size: 1.125rem; color: var(--muted-fg); }
+    .section-sep { height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); }
+
+    @media (min-width: 768px) { .section-title { font-size: 2.5rem; } }
+
+    /* SERVICE CARDS */
+    .services-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+    @media (min-width: 768px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+    .service-card {
+      position: relative; background: #fff; padding: 2rem; border-radius: 1rem;
+      border: 1px solid hsla(154,10%,85%,0.4); box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      transition: all 0.3s; display: flex; flex-direction: column; height: 100%;
+    }
+    .service-card:hover { box-shadow: 0 20px 40px hsla(154,22%,43%,0.05); border-color: hsla(154,22%,43%,0.2); }
+    .service-card-num {
+      position: absolute; top: 0; right: 0; padding: 1.5rem;
+      font-family: var(--font-serif); font-size: 3.75rem; font-weight: 700;
+      color: var(--primary); opacity: 0.05; transition: opacity 0.3s;
+    }
+    .service-card:hover .service-card-num { opacity: 0.1; }
+    .service-card h3 {
+      font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; padding-right: 2rem;
+      transition: color 0.3s;
+    }
+    .service-card:hover h3 { color: var(--primary); }
+    .service-card p { color: var(--muted-fg); flex-grow: 1; }
+    .service-card-footer {
+      margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid hsla(154,10%,85%,0.3);
+      display: flex; align-items: center; color: var(--primary); font-size: 0.875rem; font-weight: 500;
+      opacity: 0; transform: translateX(-0.5rem); transition: all 0.3s;
+    }
+    .service-card:hover .service-card-footer { opacity: 1; transform: translateX(0); }
+    .service-card-footer svg { margin-left: 0.5rem; width: 16px; height: 16px; }
+
+    /* PRICING */
+    .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 900px; margin: 0 auto; }
+    @media (min-width: 1024px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
+    .pricing-card {
+      position: relative; padding: 2rem; border-radius: 1.5rem; overflow: hidden;
+      display: flex; flex-direction: column; transition: transform 0.3s;
+    }
+    .pricing-card:hover { transform: translateY(-5px); }
+    .pricing-card.online { background: #fff; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+    .pricing-card.inperson { background: var(--primary); color: #fff; box-shadow: 0 10px 30px hsla(154,22%,43%,0.2); }
+    .pricing-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+    .pricing-icon {
+      width: 48px; height: 48px; border-radius: 1rem; display: flex; align-items: center; justify-content: center;
+    }
+    .pricing-icon.online-icon { background: var(--secondary); color: var(--primary); }
+    .pricing-icon.inperson-icon { background: rgba(255,255,255,0.1); color: #fff; }
+    .pricing-badge {
+      font-size: 0.875rem; font-weight: 500; padding: 0.25rem 0.75rem; border-radius: 50px;
+    }
+    .pricing-badge.online-badge { background: var(--muted); color: var(--muted-fg); }
+    .pricing-badge.inperson-badge { background: rgba(255,255,255,0.2); color: #fff; }
+    .pricing-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .pricing-card.inperson h3 { color: #fff; }
+    .pricing-price { font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+    .pricing-price.online-price { color: var(--primary); }
+    .pricing-price.inperson-price { color: #fff; }
+    .pricing-desc { font-size: 0.875rem; margin-bottom: 2rem; line-height: 1.6; }
+    .pricing-desc.online-desc { color: var(--muted-fg); }
+    .pricing-desc.inperson-desc { color: rgba(255,255,255,0.8); }
+    .pricing-location { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.875rem; margin-bottom: 1.5rem; }
+    .pricing-location svg { width: 16px; height: 16px; margin-top: 2px; flex-shrink: 0; opacity: 0.7; }
+    .pricing-features { flex-grow: 1; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+    .pricing-feature { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.875rem; }
+    .pricing-feature svg { width: 16px; height: 16px; margin-top: 2px; flex-shrink: 0; }
+    .pricing-feature.online-feat { color: var(--muted-fg); }
+    .pricing-feature.online-feat svg { color: var(--primary); }
+    .pricing-feature.inperson-feat { color: rgba(255,255,255,0.9); }
+    .pricing-feature.inperson-feat svg { color: rgba(255,255,255,0.7); }
+    .pricing-btn {
+      display: block; width: 100%; padding: 0.875rem; border-radius: 0.75rem;
+      font-weight: 600; font-size: 1rem; text-align: center; border: none; cursor: pointer;
+      transition: all 0.2s; text-decoration: none;
+    }
+    .pricing-btn.online-btn { background: var(--primary); color: #fff; box-shadow: 0 4px 14px hsla(154,22%,43%,0.2); }
+    .pricing-btn.online-btn:hover { background: hsl(154,22%,38%); }
+    .pricing-btn.inperson-btn { background: #fff; color: var(--primary); box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+    .pricing-btn.inperson-btn:hover { background: rgba(255,255,255,0.9); }
+
+    .hours-box {
+      margin-top: 3rem; text-align: center; background: #fff; padding: 1.5rem; border-radius: 0.75rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04); border: 1px solid hsla(154,10%,85%,0.5);
+      max-width: 640px; margin-left: auto; margin-right: auto;
+    }
+    .hours-title { display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .hours-title svg { width: 16px; height: 16px; color: var(--primary); }
+    .hours-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 2rem; color: var(--muted-fg); font-size: 0.875rem; }
+
+    /* BIOENERGY */
+    .bio-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: start; }
+    @media (min-width: 1024px) { .bio-grid { grid-template-columns: repeat(2, 1fr); } }
+    .bio-about h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+    .bio-about p { color: var(--muted-fg); font-size: 1.125rem; line-height: 1.7; margin-bottom: 1.5rem; }
+    .bio-quote {
+      padding: 1rem 1.5rem; border-left: 4px solid hsla(154,22%,43%,0.3);
+      font-family: var(--font-serif); font-style: italic; font-size: 1.125rem;
+      color: rgba(50,60,70,0.8); background: rgba(251,249,246,0.5); border-radius: 0 0.5rem 0.5rem 0;
+      margin-top: 2rem;
+    }
+    .bio-method-box {
+      background: var(--bg); padding: 2rem; border-radius: 1rem;
+      border: 1px solid hsla(154,10%,85%,0.4);
+    }
+    .bio-method-box h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+    .bio-method-box p { color: var(--muted-fg); line-height: 1.7; margin-bottom: 1rem; }
+    .bio-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+    @media (max-width: 640px) { .bio-details { grid-template-columns: 1fr; } }
+    .bio-detail {
+      background: var(--bg); padding: 1.5rem; border-radius: 0.75rem;
+      border: 1px solid hsla(154,10%,85%,0.4); text-align: center;
+    }
+    .bio-detail svg { width: 24px; height: 24px; color: var(--primary); margin: 0 auto 0.75rem; }
+    .bio-detail-label { font-weight: 600; font-size: 0.875rem; }
+    .bio-detail-value { color: var(--muted-fg); font-size: 0.875rem; }
+    .bio-info-box {
+      background: hsla(154,22%,43%,0.05); padding: 1.5rem; border-radius: 0.75rem;
+      border: 1px solid hsla(154,22%,43%,0.1); margin-top: 2rem;
+    }
+    .bio-info-box p { color: var(--muted-fg); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1rem; }
+    .bio-phone { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary); font-weight: 600; text-decoration: none; }
+    .bio-phone:hover { text-decoration: underline; }
+    .bio-phone svg { width: 16px; height: 16px; }
+    .bio-cert {
+      margin-top: 2rem; border-radius: 0.75rem; overflow: hidden;
+      border: 1px solid hsla(154,10%,85%,0.4); box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .bio-cert img { width: 100%; height: auto; }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; }
+    @media (min-width: 1024px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
+    .contact-info h2 { font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; }
+    @media (min-width: 768px) { .contact-info h2 { font-size: 2.5rem; } }
+    .contact-info > p { font-size: 1.125rem; color: var(--muted-fg); line-height: 1.7; margin-bottom: 2rem; }
+    .contact-item {
+      display: flex; align-items: center; gap: 1rem; padding: 1rem; background: #fff;
+      border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04); margin-bottom: 1rem;
+      transition: box-shadow 0.2s; text-decoration: none;
+    }
+    a.contact-item:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .contact-icon {
+      width: 48px; height: 48px; border-radius: 50%; background: var(--secondary); color: var(--primary);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    a.contact-item:hover .contact-icon { background: var(--primary); color: #fff; }
+    .contact-icon svg { width: 20px; height: 20px; }
+    .contact-label { font-size: 0.875rem; color: var(--muted-fg); font-weight: 500; }
+    .contact-value { font-size: 1.125rem; font-weight: 600; }
+
+    /* FORM */
+    .form-card {
+      background: #fff; padding: 1.5rem 2rem; border-radius: 1rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.04); border: 1px solid hsla(154,10%,85%,0.5);
+    }
+    .form-card h3 { font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-bottom: 1.5rem; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.375rem; }
+    .form-input, .form-textarea {
+      width: 100%; padding: 0.7rem 0.875rem;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      background: var(--bg); font-family: var(--font-sans); font-size: 0.95rem; color: var(--fg);
+      transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+    }
+    .form-input:focus, .form-textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px hsla(154,22%,43%,0.1); }
+    .form-textarea { min-height: 100px; resize: none; }
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    @media (min-width: 768px) { .form-row { grid-template-columns: 1fr 1fr; } }
+    .radio-group { display: flex; gap: 1.5rem; margin-top: 0.25rem; }
+    .radio-label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.95rem; }
+    .radio-label input[type="radio"] { accent-color: var(--primary); width: 16px; height: 16px; }
+    .consent-group {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      padding: 1rem; background: hsla(34,20%,90%,0.3); border-radius: var(--radius);
+    }
+    .consent-group input[type="checkbox"] { accent-color: var(--primary); width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; }
+    .consent-group label { font-size: 0.875rem; color: var(--muted-fg); cursor: pointer; }
+    .form-submit {
+      width: 100%; padding: 0.875rem; border-radius: 0.75rem; font-size: 1rem; font-weight: 600;
+      background: var(--primary); color: #fff; border: none; cursor: pointer;
+      box-shadow: 0 4px 14px hsla(154,22%,43%,0.2); transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    }
+    .form-submit:hover { box-shadow: 0 6px 20px hsla(154,22%,43%,0.3); }
+    .form-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+    .form-submit svg { width: 16px; height: 16px; }
+    .form-error {
+      padding: 1rem; margin-bottom: 1.5rem; border-radius: var(--radius);
+      background: hsl(0,80%,96%); border: 1px solid hsl(0,80%,90%); font-size: 0.875rem; color: hsl(0,60%,40%);
+    }
+    .form-error a { text-decoration: underline; }
+    .form-success { text-align: center; padding: 4rem 1rem; }
+    .form-success svg { width: 64px; height: 64px; color: var(--primary); margin: 0 auto 1.5rem; }
+    .form-success h3 { color: var(--primary); margin-bottom: 1rem; }
+    .form-success p { color: var(--muted-fg); font-size: 1.125rem; max-width: 400px; margin: 0 auto 1.5rem; }
+    .form-success button {
+      padding: 0.65rem 1.5rem; border: 1px solid var(--border); border-radius: var(--radius);
+      background: #fff; cursor: pointer; font-weight: 500; transition: background 0.2s;
+    }
+    .form-success button:hover { background: var(--bg); }
+    .field-error { color: hsl(0,60%,45%); font-size: 0.8rem; margin-top: 0.25rem; }
+
+    /* FOOTER */
+    .footer {
+      background: #fff; border-top: 1px solid var(--border); padding: 3rem 0;
+    }
+    .footer .container { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center; }
+    @media (min-width: 768px) { .footer .container { flex-direction: row; justify-content: space-between; text-align: left; } }
+    .footer h4 { font-family: var(--font-serif); font-weight: 700; font-size: 1.25rem; }
+    .footer-sub { color: var(--muted-fg); font-size: 0.875rem; margin-top: 0.5rem; }
+    .footer-copy { color: var(--muted-fg); font-size: 0.875rem; }
+
+    /* ANIMATIONS */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-left.visible { opacity: 1; transform: translateX(0); }
+    .fade-right { opacity: 0; transform: translateX(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* SPINNER */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner { animation: spin 1s linear infinite; }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<header class="nav" id="nav">
+  <div class="container">
+    <a href="#home" class="nav-logo">
+      <div class="nav-logo-name">Ewa Nowińska</div>
+      <div class="nav-logo-sub">Psycholog</div>
+    </a>
+    <nav class="nav-links">
+      <a href="#about" class="nav-link">O mnie</a>
+      <a href="#offer" class="nav-link">Zakres pomocy</a>
+      <a href="#bioenergy" class="nav-link">Bioenergoterapia</a>
+      <a href="#pricing" class="nav-link">Cennik</a>
+      <a href="#contact" class="nav-link">Kontakt</a>
+      <a href="#contact" class="nav-cta">Umów wizytę</a>
+    </nav>
+    <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Menu">
+      <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:none"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="closeMenu()">O mnie</a>
+  <a href="#offer" onclick="closeMenu()">Zakres pomocy</a>
+  <a href="#bioenergy" onclick="closeMenu()">Bioenergoterapia</a>
+  <a href="#pricing" onclick="closeMenu()">Cennik</a>
+  <a href="#contact" onclick="closeMenu()">Kontakt</a>
+  <a href="#contact" class="nav-cta" onclick="closeMenu()">Umów wizytę</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg1"></div>
+  <div class="hero-bg2"></div>
+  <div class="container">
+    <div class="hero-text fade-left" id="about">
+      <span class="hero-label">Psycholog</span>
+      <h1 class="hero-title">Mgr Ewa Nowińska</h1>
+      <p class="hero-desc">Jestem psychologiem wspierającym dorosłych i dzieci w lepszym rozumieniu siebie, swoich emocji i relacji. Tworzę spokojną, bezpieczną przestrzeń, w której można mówić o trudnościach, odzyskiwać równowagę i odnajdywać własne sposoby radzenia sobie.</p>
+      <div class="hero-quote">„Twoja historia zasługuje na uwagę. A Ty zasługujesz na miejsce, w którym możesz ją opowiedzieć bez lęku."</div>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Umów konsultację</a>
+        <a href="#offer" class="btn-outline">Dowiedz się więcej</a>
+      </div>
+    </div>
+    <div class="hero-image-wrap fade-right">
+      <div class="hero-image"><img src="ewa-nowinska.jpg" alt="Mgr Ewa Nowińska"></div>
+      <div class="hero-circle1"></div>
+      <div class="hero-circle2"></div>
+    </div>
+  </div>
 </section>
-<section class="bioenergoterapia">
-    <h2>Czym jest bioenergoterapia?</h2>
-    <p>Od zawsze fascynował mnie nieskończony potencjał człowieka oraz naturalna zdolność organizmu do samouzdrawiania. Ta ciekawość doprowadziła mnie do metody Zdenko Domancicia, którą dziś praktykuję, wspierając ludzi w odzyskiwaniu zdrowia, równowagi i wewnętrznej siły. Od wielu lat zgłębiam pracę z energią i naturalne procesy regeneracji organizmu. Moja praktyka jest wynikiem osobistych doświadczeń, poszukiwań i potrzeby zrozumienia, jak ciało i umysł współpracują ze sobą. Metoda Domancicia okazała się dla mnie naturalnym rozwinięciem mojego przekonania, że w każdym człowieku drzemie ogromna zdolność do odzyskiwania zdrowia i równowagi.</p>
+
+<!-- OFFER -->
+<section class="section section-white" id="offer">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2 class="section-title">Zakres pomocy</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Wspieram w różnorodnych obszarach życia, dostosowując metody pracy do Twoich indywidualnych potrzeb.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-card-num">1</div>
+        <h3>Wsparcie emocjonalne</h3>
+        <p>Pomagam w momentach przeciążenia, smutku, zagubienia czy poczucia braku równowagi. Wspólnie szukamy sposobów, które przynoszą ulgę i wzmacniają poczucie sprawczości.</p>
+        <div class="service-card-footer"><span>Dowiedz się więcej</span> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-card-num">2</div>
+        <h3>Praca z lękiem i stresem</h3>
+        <p>Towarzyszę osobom zmagającym się z napięciem, niepokojem, trudnymi myślami czy sytuacjami życiowymi, które wywołują silne emocje. Uczę, jak rozumieć sygnały z ciała i umysłu oraz jak odzyskiwać poczucie bezpieczeństwa.</p>
+        <div class="service-card-footer"><span>Dowiedz się więcej</span> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-card-num">3</div>
+        <h3>Trudności dzieci i młodzieży</h3>
+        <p>Wspieram dzieci w obszarach emocji, zachowań, relacji rówieśniczych i szkolnych wyzwań. Pracuję również z rodzicami, pomagając im lepiej rozumieć potrzeby dziecka i wspierać je w codzienności.</p>
+        <div class="service-card-footer"><span>Dowiedz się więcej</span> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-card-num">4</div>
+        <h3>Relacje i komunikacja</h3>
+        <p>Pomagam w budowaniu zdrowych relacji — w rodzinie, w związku, w szkole czy w pracy. Pracujemy nad rozumieniem emocji, granic i sposobów wyrażania siebie.</p>
+        <div class="service-card-footer"><span>Dowiedz się więcej</span> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-card-num">5</div>
+        <h3>Budowanie odporności</h3>
+        <p>Wspieram w rozwijaniu umiejętności radzenia sobie z trudnościami, wzmacnianiu poczucia własnej wartości i budowaniu wewnętrznej stabilności.</p>
+        <div class="service-card-footer"><span>Dowiedz się więcej</span> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></div>
+      </div>
+    </div>
+  </div>
 </section>
-<section class="contact">
-    <h2>Kontakt</h2>
-    <p>Telefon: 513-385-506</p>
-    <p>Sesje osobiście dostępne.</p>
+
+<!-- PRICING -->
+<section class="section section-bg" id="pricing">
+  <div class="section-sep"></div>
+  <div class="container" style="padding-top: 4rem;">
+    <div class="section-header fade-in">
+      <h2 class="section-title">Konsultacje i Cennik</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="pricing-grid">
+      <!-- ONLINE -->
+      <div class="pricing-card online fade-in">
+        <div class="pricing-top">
+          <div class="pricing-icon online-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"/></svg>
+          </div>
+          <span class="pricing-badge online-badge">50 min</span>
+        </div>
+        <h3>Konsultacja Online</h3>
+        <div class="pricing-price online-price">200 zł</div>
+        <p class="pricing-desc online-desc">Wygodna forma spotkania bez wychodzenia z domu, prowadzona przez Google Meet.</p>
+        <div class="pricing-features">
+          <div class="pricing-feature online-feat"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Bezpieczne połączenie wideo</span></div>
+          <div class="pricing-feature online-feat"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Elastyczne godziny spotkań</span></div>
+          <div class="pricing-feature online-feat"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Wskazówki techniczne przed wizytą</span></div>
+          <div class="pricing-feature online-feat"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Oszczędność czasu na dojazdy</span></div>
+        </div>
+        <a href="#contact" class="pricing-btn online-btn">Umów wizytę</a>
+      </div>
+      <!-- IN-PERSON -->
+      <div class="pricing-card inperson fade-in">
+        <div class="pricing-top">
+          <div class="pricing-icon inperson-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+          </div>
+          <span class="pricing-badge inperson-badge">50 min</span>
+        </div>
+        <h3>Konsultacja Stacjonarna</h3>
+        <div class="pricing-price inperson-price">250 zł</div>
+        <p class="pricing-desc inperson-desc">Tradycyjne spotkanie w gabinecie, w atmosferze pełnej dyskrecji i spokoju.</p>
+        <div class="pricing-location">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+          <span>ul. Zusa 72, 80-180 Kowale</span>
+        </div>
+        <div class="pricing-features">
+          <div class="pricing-feature inperson-feat"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Bezpośredni kontakt w gabinecie</span></div>
+          <div class="pricing-feature inperson-feat"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Bezpieczna przestrzeń do rozmowy</span></div>
+          <div class="pricing-feature inperson-feat"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Dostępność w weekendy</span></div>
+          <div class="pricing-feature inperson-feat"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Łatwy dojazd i parking</span></div>
+        </div>
+        <a href="#contact" class="pricing-btn inperson-btn">Umów wizytę</a>
+      </div>
+    </div>
+    <div class="hours-box fade-in">
+      <div class="hours-title">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Godziny przyjęć
+      </div>
+      <div class="hours-list">
+        <span><strong>Piątki:</strong> 15:00 - 20:00</span>
+        <span><strong>Soboty:</strong> 10:00 - 13:00</span>
+        <span><strong>Niedziele:</strong> 10:00 - 12:00</span>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- BIOENERGY -->
+<section class="section section-white" id="bioenergy">
+  <div class="section-sep"></div>
+  <div class="container" style="padding-top: 4rem;">
+    <div class="section-header fade-in">
+      <h2 class="section-title">Bioenergoterapia</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Naturalna droga do równowagi</p>
+    </div>
+    <div class="bio-grid">
+      <div class="bio-about fade-left">
+        <h3>O mnie</h3>
+        <p>W swojej pracy łączę wiedzę o energetycznej naturze człowieka z głębokim zrozumieniem procesów, które wpływają na nasze samopoczucie i równowagę wewnętrzną. Korzystam z metody Zdenko Domancica — precyzyjnego systemu pracy z bioenergią, który wspiera organizm w odzyskiwaniu harmonii oraz uruchamianiu naturalnych mechanizmów regeneracji.</p>
+        <p>Wierzę, że każdy człowiek posiada wrodzoną zdolność do samouzdrawiania. Moją rolą jest stworzenie warunków, w których ciało i psychika mogą powrócić do swojego naturalnego rytmu, uwolnić blokady i odzyskać swobodny przepływ energii.</p>
+        <div class="bio-quote">„Zadaniem terapeuty nie jest leczenie pacjenta, lecz pomoc w uruchomieniu jego naturalnej zdolności do samoleczenia, w którą został wyposażony przy urodzeniu, a którą często osłabiają blokady psychiczne i obciążenia współczesnego świata."</div>
+      </div>
+      <div class="fade-right">
+        <div class="bio-method-box">
+          <h3>Czym jest bioenergoterapia?</h3>
+          <p>Bioenergoterapia to bezpieczna, naturalna metoda wspierania zdrowia, oparta na pracy z energią życiową obecną w naturze. Podczas sesji terapeuta harmonizuje biopole pacjenta, wspierając organizm w odzyskiwaniu równowagi fizycznej i emocjonalnej. Zabieg jest całkowicie nieinwazyjny, bezbolesny i nie wymaga żadnego sprzętu.</p>
+          <p>W trakcie terapii wiele osób doświadcza głębokiego relaksu, spokoju i wyciszenia. Osoby bardziej wrażliwe energetycznie mogą odczuwać ciepło, chłód, mrowienie lub delikatne pulsowanie energii.</p>
+        </div>
+        <div class="bio-details">
+          <div class="bio-detail">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div class="bio-detail-label">Czas sesji</div>
+            <div class="bio-detail-value">do 30 minut</div>
+          </div>
+          <div class="bio-detail">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
+            <div class="bio-detail-label">Seria</div>
+            <div class="bio-detail-value">4 spotkania</div>
+          </div>
+          <div class="bio-detail">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/></svg>
+            <div class="bio-detail-label">Forma</div>
+            <div class="bio-detail-value">Kontakt bezpośredni</div>
+          </div>
+        </div>
+        <div class="bio-info-box">
+          <p>Terapię prowadzę wyłącznie w kontakcie bezpośrednim, w spokojnej atmosferze sprzyjającej regeneracji i odprężeniu. Każda sesja najczęściej wykonywana jest w serii czterech spotkań, dzień po dniu, aby wzmocnić efekt działania.</p>
+          <a href="tel:513385506" class="bio-phone">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+            Umów się: 513 385 506
+          </a>
+        </div>
+        <div class="bio-cert">
+          <img src="certyfikat.jpg" alt="Certyfikat - The Zdenko Domančić Method of Bioenergy Therapy, Course I">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-primary-light" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info fade-left">
+        <h2>Kontakt</h2>
+        <p>Jeśli chcesz umówić konsultację online lub zadać pytanie, zapraszam do kontaktu. Odpowiadam z uważnością i staram się wracać do wiadomości tak szybko, jak to możliwe.</p>
+        <div>
+          <a href="mailto:ewa.nowinska@op.pl" class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Napisz e-mail</div>
+              <div class="contact-value">ewa.nowinska@op.pl</div>
+            </div>
+          </a>
+          <a href="tel:513385506" class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Zadzwoń</div>
+              <div class="contact-value">513 385 506</div>
+            </div>
+          </a>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Lokalizacja</div>
+              <div class="contact-value">ul. Zusa 72, 80-180 Kowale</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="fade-right">
+        <div class="form-card" id="form-card">
+          <h3>Napisz do mnie</h3>
+          <div id="form-error" class="form-error" style="display:none">
+            <strong>Nie udało się wysłać wiadomości.</strong><br>
+            Spróbuj ponownie lub skontaktuj się bezpośrednio:<br>
+            <a href="mailto:ewa.nowinska@op.pl">ewa.nowinska@op.pl</a> |
+            <a href="tel:513385506">513 385 506</a>
+          </div>
+          <form id="contact-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="name">Imię i nazwisko</label>
+              <input class="form-input" type="text" id="name" name="name" placeholder="Anna Kowalska" required>
+              <div class="field-error" id="name-error"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="email">Adres e-mail</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="anna@example.com" required>
+                <div class="field-error" id="email-error"></div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="phone">Numer telefonu</label>
+                <input class="form-input" type="tel" id="phone" name="phone" placeholder="123 456 789" required>
+                <div class="field-error" id="phone-error"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Preferowana forma kontaktu</label>
+              <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="preferredContact" value="email" checked> E-mail</label>
+                <label class="radio-label"><input type="radio" name="preferredContact" value="phone"> Telefon</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="message">Krótka informacja o sprawie / powód zgłoszenia</label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Opisz krótko w czym mogę pomóc..." required></textarea>
+              <div class="field-error" id="message-error"></div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="availability">Proponowane dni lub godziny spotkania (opcjonalnie)</label>
+              <input class="form-input" type="text" id="availability" name="availability" placeholder="np. wtorki po 16:00">
+            </div>
+            <div class="form-group">
+              <div class="consent-group">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">Wyrażam zgodę na kontakt w celu umówienia konsultacji online lub stacjonarnej.</label>
+              </div>
+              <div class="field-error" id="consent-error"></div>
+            </div>
+            <button type="submit" class="form-submit" id="submit-btn">
+              Wyślij wiadomość
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
+            </button>
+          </form>
+        </div>
+        <div id="form-success" class="form-card form-success" style="display:none">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <h3>Wiadomość wysłana</h3>
+          <p>Dziękuję za kontakt. Postaram się odpowiedzieć tak szybko, jak to możliwe.</p>
+          <button onclick="resetForm()">Wyślij kolejną wiadomość</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div>
+      <h4>Mgr Ewa Nowińska</h4>
+      <div class="footer-sub">Psycholog &bull; Bioenergoterapeutka</div>
+    </div>
+    <div class="footer-copy">
+      &copy; <script>document.write(new Date().getFullYear())</script> Ewa Nowińska. Wszelkie prawa zastrzeżone.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      var id = this.getAttribute('href').substring(1);
+      var el = document.getElementById(id);
+      if (el) {
+        var offset = 80;
+        var top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Nav scroll effect
+  window.addEventListener('scroll', function() {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    var menu = document.getElementById('mobile-menu');
+    var open = menu.classList.toggle('open');
+    document.getElementById('menu-icon').style.display = open ? 'none' : 'block';
+    document.getElementById('close-icon').style.display = open ? 'block' : 'none';
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  function closeMenu() {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('menu-icon').style.display = 'block';
+    document.getElementById('close-icon').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  // Scroll animations
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in, .fade-left, .fade-right').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  // Form validation & submission
+  var form = document.getElementById('contact-form');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var valid = true;
+
+    // Clear errors
+    document.querySelectorAll('.field-error').forEach(function(el) { el.textContent = ''; });
+    document.getElementById('form-error').style.display = 'none';
+
+    var name = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var message = document.getElementById('message').value.trim();
+    var consent = document.getElementById('consent').checked;
+
+    if (name.length < 2) { document.getElementById('name-error').textContent = 'Imię i nazwisko jest wymagane'; valid = false; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById('email-error').textContent = 'Podaj prawidłowy adres e-mail'; valid = false; }
+    if (phone.length < 6) { document.getElementById('phone-error').textContent = 'Podaj numer telefonu'; valid = false; }
+    if (message.length < 5) { document.getElementById('message-error').textContent = 'Opisz krótko powód zgłoszenia'; valid = false; }
+    if (!consent) { document.getElementById('consent-error').textContent = 'Wymagana jest zgoda na kontakt'; valid = false; }
+
+    if (!valid) return;
+
+    var btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<svg class="spinner" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 2v4m0 12v4m-7.07-3.93l2.83-2.83m8.48-8.48l2.83-2.83M2 12h4m12 0h4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83"/></svg> Wysyłanie...';
+
+    var fd = new FormData();
+    fd.append('Imię i nazwisko', name);
+    fd.append('Email', email);
+    fd.append('Telefon', phone);
+    fd.append('Preferowany kontakt', document.querySelector('input[name="preferredContact"]:checked').value === 'email' ? 'E-mail' : 'Telefon');
+    fd.append('Wiadomość', message);
+    var avail = document.getElementById('availability').value.trim();
+    if (avail) fd.append('Proponowane terminy', avail);
+    fd.append('_subject', 'Nowe zgłoszenie od: ' + name);
+
+    fetch('https://formspree.io/f/xpwrjkbn', {
+      method: 'POST',
+      body: fd,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res) {
+      if (res.ok) {
+        document.getElementById('form-card').querySelector('form').style.display = 'none';
+        document.getElementById('form-card').querySelector('h3').style.display = 'none';
+        document.getElementById('form-card').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        document.getElementById('form-error').style.display = 'block';
+        btn.disabled = false;
+        btn.innerHTML = 'Wyślij wiadomość <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>';
+      }
+    }).catch(function() {
+      document.getElementById('form-error').style.display = 'block';
+      btn.disabled = false;
+      btn.innerHTML = 'Wyślij wiadomość <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>';
+    });
+  });
+
+  function resetForm() {
+    document.getElementById('form-card').style.display = 'block';
+    document.getElementById('form-card').querySelector('form').style.display = 'block';
+    document.getElementById('form-card').querySelector('h3').style.display = 'block';
+    document.getElementById('form-success').style.display = 'none';
+    form.reset();
+  }
+</script>
+
+</body>
+</html>
