@@ -815,79 +815,62 @@ w każdym człowieku drzemie ogromna zdolność do odzyskiwania zdrowia i równo
 
   // Form validation & submission
   var form = document.getElementById('contact-form');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var valid = true;
 
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  var valid = true;
+    // Clear errors
+    document.querySelectorAll('.field-error').forEach(function(el) { el.textContent = ''; });
+    document.getElementById('form-error').style.display = 'none';
 
-  // reset błędów
-  document.querySelectorAll('.field-error').forEach(function(el) { el.textContent = ''; });
-  document.getElementById('form-error').style.display = 'none';
+    var name = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var message = document.getElementById('message').value.trim();
+    var consent = document.getElementById('consent').checked;
 
-  var name = document.getElementById('name').value.trim();
-  var email = document.getElementById('email').value.trim();
-  var phone = document.getElementById('phone').value.trim();
-  var message = document.getElementById('message').value.trim();
-  var consent = document.getElementById('consent').checked;
+    if (name.length < 2) { document.getElementById('name-error').textContent = 'Imię i nazwisko jest wymagane'; valid = false; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById('email-error').textContent = 'Podaj prawidłowy adres e-mail'; valid = false; }
+    if (phone.length < 6) { document.getElementById('phone-error').textContent = 'Podaj numer telefonu'; valid = false; }
+    if (message.length < 5) { document.getElementById('message-error').textContent = 'Opisz krótko powód zgłoszenia'; valid = false; }
+    if (!consent) { document.getElementById('consent-error').textContent = 'Wymagana jest zgoda na kontakt'; valid = false; }
 
-  if (name.length < 2) {
-    document.getElementById('name-error').textContent = 'Podaj imię i nazwisko';
-    valid = false;
-  }
+    if (!valid) return;
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    document.getElementById('email-error').textContent = 'Nieprawidłowy email';
-    valid = false;
-  }
+    var btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<svg class="spinner" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 2v4m0 12v4m-7.07-3.93l2.83-2.83m8.48-8.48l2.83-2.83M2 12h4m12 0h4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83"/></svg> Wysyłanie...';
 
-  if (phone.length < 6) {
-    document.getElementById('phone-error').textContent = 'Podaj numer telefonu';
-    valid = false;
-  }
+    var fd = new FormData();
+    fd.append('Imię i nazwisko', name);
+    fd.append('Email', email);
+    fd.append('Telefon', phone);
+    fd.append('Preferowany kontakt', document.querySelector('input[name="preferredContact"]:checked').value === 'email' ? 'E-mail' : 'Telefon');
+    fd.append('Wiadomość', message);
+    var avail = document.getElementById('availability').value.trim();
+    if (avail) fd.append('Proponowane terminy', avail);
+    fd.append('_subject', 'Nowe zgłoszenie od: ' + name);
 
-  if (message.length < 5) {
-    document.getElementById('message-error').textContent = 'Napisz wiadomość';
-    valid = false;
-  }
-
-  if (!consent) {
-    document.getElementById('consent-error').textContent = 'Zgoda jest wymagana';
-    valid = false;
-  }
-
-  if (!valid) return;
-
-  var btn = document.getElementById('submit-btn');
-  btn.disabled = true;
-  btn.innerHTML = 'Wysyłanie...';
-
-  emailjs.send("rlnR79QZTK3BkhdUqdt0w", "template_m2rxz4g", {
-    name: name,
-    email: email,
-    phone: phone,
-    preferred_contact: document.querySelector('input[name="preferredContact"]:checked').value,
-    message: message,
-    availability: document.getElementById('availability').value.trim()
-  })
-  .then(function() {
-
-    document.getElementById('form-card').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
-
-    form.reset();
-
-  }, function(error) {
-
-    console.error(error);
-
-    document.getElementById('form-error').style.display = 'block';
-
-    btn.disabled = false;
-    btn.innerHTML = 'Wyślij wiadomość';
-
-  });
-
-});
+    fetch('https://formspree.io/f/xpwrjkbn', {
+      method: 'POST',
+      body: fd,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res) {
+      if (res.ok) {
+        document.getElementById('form-card').querySelector('form').style.display = 'none';
+        document.getElementById('form-card').querySelector('h3').style.display = 'none';
+        document.getElementById('form-card').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        document.getElementById('form-error').style.display = 'block';
+        btn.disabled = false;
+        btn.innerHTML = 'Wyślij wiadomość <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>';
+      }
+    }).catch(function() {
+      document.getElementById('form-error').style.display = 'block';
+      btn.disabled = false;
+      btn.innerHTML = 'Wyślij wiadomość <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>';
+    });
   });
 
   function resetForm() {
@@ -899,12 +882,5 @@ form.addEventListener('submit', function(e) {
   }
 </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-<script>
-(function(){
-  emailjs.init("AdGlkcfKyL1Pc5LBJ");
-})();
-</script>
 </body>
 </html>
