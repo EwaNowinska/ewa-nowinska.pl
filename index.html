@@ -882,5 +882,66 @@ w każdym człowieku drzemie ogromna zdolność do odzyskiwania zdrowia i równo
   }
 </script>
 
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+
+  emailjs.init("AdGlkcfKyL1Pc5LBJ");
+
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+
+  // usuwamy stare eventy (hack bezpieczny)
+  var newForm = form.cloneNode(true);
+  form.parentNode.replaceChild(newForm, form);
+
+  newForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var name = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var message = document.getElementById('message').value.trim();
+    var consent = document.getElementById('consent').checked;
+
+    if (!name || !email || !phone || !message || !consent) {
+      alert("Uzupełnij wszystkie pola");
+      return;
+    }
+
+    var btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.innerText = "Wysyłanie...";
+
+    emailjs.send("rlnR79QZTK3BkhdUqdt0w", "template_m2rxz4g", {
+      name: name,
+      email: email,
+      phone: phone,
+      preferred_contact: document.querySelector('input[name="preferredContact"]:checked').value,
+      message: message,
+      availability: document.getElementById('availability').value.trim()
+    })
+    .then(function(){
+
+      document.getElementById('form-card').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+
+    })
+    .catch(function(err){
+
+      console.error(err);
+      alert("Błąd wysyłki. Spróbuj ponownie.");
+
+      btn.disabled = false;
+      btn.innerText = "Wyślij wiadomość";
+
+    });
+
+  });
+
+})();
+</script>
+  
 </body>
 </html>
